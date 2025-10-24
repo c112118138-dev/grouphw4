@@ -1,14 +1,18 @@
+系統環境圖 (DFD)
+[]!
+
+
 ```mermaid
 flowchart TD
     Nurse(護理師) -->|身分登入／操作| Device(啟動/關閉裝置)
     Device -- 身分認證資料傳送 --> NIS(NIS系統)
-    NIS -- 病患名單/資訊 --> Nurse
     Nurse -- 查詢/回饋資料 --> NIS
-    NIS -- 病患情形/SOP指引 --> AI分析
-    AI分析 -- 比對/分析SOP --> SOPDB(醫療SOP資料庫)
-    SOPDB -- SOP規則回傳 --> AI分析
-    AI分析 -- SOP流程建議 & 時間指引 --> Nurse
+    NIS -- 病患名單/資訊 --> Nurse
     Nurse -- 病患數據回傳 --> NIS
+    NIS -- 病患情形／SOP指引 --> AI( AI分析 )
+    AI -- 比對/分析SOP --> SOPDB(醫療SOP資料庫)
+    SOPDB -- SOP規則回傳 --> AI
+    AI -- SOP流程建議 & 時間指引--> Nurse
 
 ```
 
